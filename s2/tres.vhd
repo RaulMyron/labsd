@@ -9,7 +9,6 @@ entity function_logic is
 end entity function_logic;
 
 architecture ARCH of function_logic is
-    -- Declaração dos componentes
     component DECO is
         port (
             A : in std_logic_vector(3 downto 0);
@@ -32,17 +31,14 @@ architecture ARCH of function_logic is
         );
     end component;
     
-    -- Declaração de sinais
     signal decoder_in : std_logic_vector(3 downto 0);
     signal decoder_out : std_logic_vector(15 downto 0);
     signal mux_select : std_logic_vector(2 downto 0);
     signal mux_data : std_logic_vector(7 downto 0);
     
-    -- Sinais para as funções de cada caso EFG
     signal func_000, func_001, func_010, func_011 : std_logic;
     signal func_100, func_101, func_110, func_111 : std_logic;
     
-    -- Sinais intermediários para portas OR
     signal or_000_out, or_001_out, or_010_out : std_logic;
     signal or_100_out, or_110_a_out, or_110_b_out : std_logic;
 
