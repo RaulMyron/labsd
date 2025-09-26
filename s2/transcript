@@ -1,0 +1,248 @@
+# Reading D:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# Loading project labsd
+vsim -gui work.helloworld
+# vsim -gui work.helloworld 
+# Start time: 14:51:07 on Sep 26,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.helloworld(helloworld_exe)
+# file mkdir semana2
+# Load canceled
+quit
+quit -sim
+# End time: 14:54:39 on Sep 26,2025, Elapsed time: 0:03:32
+# Errors: 1, Warnings: 0
+# reading D:/intelFPGA/18.1/modelsim_ase/win32aloem/../modelsim.ini
+# Loading project semana2
+# Load canceled
+# Compile of um.vhd was successful.
+vsim -gui work.mux8x1
+# vsim -gui work.mux8x1 
+# Start time: 14:55:28 on Sep 26,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.mux8x1(arch_mux8x1)
+add wave -position end  sim:/mux8x1/S
+add wave -position end  sim:/mux8x1/D
+add wave -position end  sim:/mux8x1/Y
+# Compile of test_bench.vhd was successful.
+# Compile of test_bench.vhd was successful.
+vsim -gui work.tb_mux8x1
+# End time: 14:57:37 on Sep 26,2025, Elapsed time: 0:02:09
+# Errors: 0, Warnings: 0
+# vsim -gui work.tb_mux8x1 
+# Start time: 14:57:37 on Sep 26,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_mux8x1(behavior)
+# Loading work.mux8x1(arch_mux8x1)
+add wave -position insertpoint  \
+sim:/tb_mux8x1/S \
+sim:/tb_mux8x1/D \
+sim:/tb_mux8x1/Y
+vsim -gui work.tb_mux8x1
+# End time: 14:58:56 on Sep 26,2025, Elapsed time: 0:01:19
+# Errors: 0, Warnings: 0
+# vsim -gui work.tb_mux8x1 
+# Start time: 14:58:56 on Sep 26,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_mux8x1(behavior)
+# Loading work.mux8x1(arch_mux8x1)
+add wave -position end  sim:/tb_mux8x1/S
+add wave -position end  sim:/tb_mux8x1/D
+add wave -position end  sim:/tb_mux8x1/Y
+# Load canceled
+run
+run
+run
+run
+run -all
+# Compile of test_bench.vhd was successful.
+run -all
+vsim -gui work.tb_mux8x1
+# End time: 15:01:55 on Sep 26,2025, Elapsed time: 0:02:59
+# Errors: 1, Warnings: 0
+# vsim -gui work.tb_mux8x1 
+# Start time: 15:01:55 on Sep 26,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_mux8x1(behavior)
+# Loading work.mux8x1(arch_mux8x1)
+add wave -position insertpoint  \
+sim:/tb_mux8x1/S \
+sim:/tb_mux8x1/D \
+sim:/tb_mux8x1/Y \
+sim:/tb_mux8x1/clk
+run -all
+# Compile of test_bench.vhd was successful.
+# Break key hit
+# Simulation stop requested.
+vsim -gui work.tb_mux8x1
+# End time: 15:10:07 on Sep 26,2025, Elapsed time: 0:08:12
+# Errors: 0, Warnings: 0
+# vsim -gui work.tb_mux8x1 
+# Start time: 15:10:07 on Sep 26,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_mux8x1(behavior)
+# Loading work.mux8x1(arch_mux8x1)
+add wave -position insertpoint  \
+sim:/tb_mux8x1/s_S \
+sim:/tb_mux8x1/s_D \
+sim:/tb_mux8x1/s_Y
+# Load canceled
+run
+# Break key hit
+run -all
+run -all
+run -all
+run -all
+# Compile of test_bech_2.vhd was successful.
+vsim -gui work.tb_decoder4x16
+# End time: 15:13:01 on Sep 26,2025, Elapsed time: 0:02:54
+# Errors: 1, Warnings: 0
+# vsim -gui work.tb_decoder4x16 
+# Start time: 15:13:01 on Sep 26,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_decoder4x16(behavior)
+# ** Warning: (vsim-3473) Component instance "uut : decoder4x16" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_decoder4x16 File: D:/intelFPGA/18.1/test_bech_2.vhd
+add wave -position insertpoint  \
+sim:/tb_decoder4x16/s_A \
+sim:/tb_decoder4x16/s_Y
+run -all
+add wave -position insertpoint  \
+sim:/tb_decoder4x16/s_A \
+sim:/tb_decoder4x16/s_Y
+force -freeze sim:/tb_decoder4x16/s_Y 1 0, 0 {100 ps} -r 200
+# Value length (1) does not equal array index length (16).
+# 
+# ** Error: (vsim-4011) Invalid force value: 1 0, 0 {100 ps}.
+# 
+# Compile of dois.vhd was successful.
+# Compile of um.vhd was successful.
+# Compile of test_bench.vhd was successful.
+# Compile of test_bech_2.vhd failed with 2 errors.
+# Compile of dois.vhd was successful.
+# 4 compiles, 1 failed with 2 errors.
+# Compile of dois.vhd was successful.
+# Compile of test_bench.vhd was successful.
+# Compile of um.vhd was successful.
+# Compile of test_bech_2.vhd failed with 2 errors.
+# Compile of test_bech_2.vhd failed with 2 errors.
+quit -sim
+# End time: 15:20:40 on Sep 26,2025, Elapsed time: 0:07:39
+# Errors: 1, Warnings: 1
+# Compile of test_bech_2.vhd failed with 2 errors.
+# Compile of test_bech_2.vhd was successful.
+vsim -gui work.tb_decoder4x16
+# vsim -gui work.tb_decoder4x16 
+# Start time: 15:21:32 on Sep 26,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_decoder4x16(behavior)
+# Loading work.decoder4x16(arch_decoder4x16)
+add wave -position insertpoint  \
+sim:/tb_decoder4x16/A \
+sim:/tb_decoder4x16/Y
+run -all
+# Compile of tb_3.vhd was successful.
+# Break key hit
+quit -sim
+vsim -gui work.tb_sistema_funcao
+# End time: 15:32:12 on Sep 26,2025, Elapsed time: 0:10:40
+# Errors: 0, Warnings: 0
+# vsim -gui work.tb_sistema_funcao 
+# Start time: 15:32:12 on Sep 26,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_sistema_funcao(behavior)
+# ** Warning: (vsim-3473) Component instance "uut : sistema_funcao" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_funcao File: D:/intelFPGA/18.1/tb_3.vhd
+add wave -position insertpoint  \
+sim:/tb_sistema_funcao/s_A \
+sim:/tb_sistema_funcao/s_B \
+sim:/tb_sistema_funcao/s_C \
+sim:/tb_sistema_funcao/s_D \
+sim:/tb_sistema_funcao/s_E \
+sim:/tb_sistema_funcao/s_F \
+sim:/tb_sistema_funcao/s_G \
+sim:/tb_sistema_funcao/s_Z
+run -all
+quit -sim
+# End time: 15:38:49 on Sep 26,2025, Elapsed time: 0:06:37
+# Errors: 0, Warnings: 1
+# Compile of um.vhd was successful.
+# Compile of test_bench.vhd was successful.
+# Compile of test_bech_2.vhd was successful.
+# Compile of dois.vhd was successful.
+# Compile of tb_3.vhd was successful.
+# Compile of tres.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+# Load canceled
+vsim -gui work.tb_funcaoc
+# vsim -gui work.tb_funcaoc 
+# Start time: 15:39:33 on Sep 26,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_funcaoc(behavior)
+# Loading work.funcaoc(arch)
+# Loading work.deco(behavioral)
+# Loading work.or_gate(behavioral)
+# Loading work.mux(behavioral)
+add wave -position insertpoint  \
+sim:/tb_funcaoc/s_A \
+sim:/tb_funcaoc/s_B \
+sim:/tb_funcaoc/s_C \
+sim:/tb_funcaoc/s_D \
+sim:/tb_funcaoc/s_E \
+sim:/tb_funcaoc/s_F \
+sim:/tb_funcaoc/s_G \
+sim:/tb_funcaoc/s_Z
+run -all
+quit -sim
+# End time: 15:44:35 on Sep 26,2025, Elapsed time: 0:05:02
+# Errors: 0, Warnings: 0
+vsim work.tb_mux8x1
+# vsim work.tb_mux8x1 
+# Start time: 15:44:40 on Sep 26,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_mux8x1(behavior)
+# Loading work.mux8x1(arch_mux8x1)
+vsim work.tb_mux8x1
+# End time: 15:44:50 on Sep 26,2025, Elapsed time: 0:00:10
+# Errors: 0, Warnings: 0
+# vsim work.tb_mux8x1 
+# Start time: 15:44:50 on Sep 26,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_mux8x1(behavior)
+# Loading work.mux8x1(arch_mux8x1)
+add wave -position insertpoint  \
+sim:/tb_mux8x1/s_S \
+sim:/tb_mux8x1/s_D \
+sim:/tb_mux8x1/s_Y
+run -all

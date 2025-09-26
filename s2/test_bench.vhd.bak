@@ -1,0 +1,92 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.NUMERIC_STD.ALL;
+
+ENTITY tb_mux8x1 IS
+END tb_mux8x1;
+
+ARCHITECTURE behavior OF tb_mux8x1 IS
+    COMPONENT mux8x1
+        PORT(
+            S : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+            D : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+            Y : OUT STD_LOGIC
+        );
+    END COMPONENT;
+
+    SIGNAL S : STD_LOGIC_VECTOR(2 DOWNTO 0) := (others => '0');
+    SIGNAL D : STD_LOGIC_VECTOR(7 DOWNTO 0) := (others => '0');
+    SIGNAL Y : STD_LOGIC;
+    
+    -- Clock para melhor visualização (opcional)
+    SIGNAL clk : STD_LOGIC := '0';
+
+BEGIN
+    uut: mux8x1 PORT MAP (
+        S => S,
+        D => D,
+        Y => Y
+    );
+    
+    -- Clock process (opcional para melhor visualização)
+    clk <= not clk after 5 ns;
+
+    stim_proc: process
+    begin
+        -- Primeiro teste: D = "10101010" (padrão alternado)
+        D <= "10101010";
+        wait for 20 ns;
+        
+        -- Teste cada seleção com tempo maior para visualização
+        for i in 0 to 7 loop
+            S <= std_logic_vector(to_unsigned(i, 3));
+            wait for 50 ns;  -- Tempo maior para melhor visualização
+        end loop;
+        
+        wait for 50 ns;
+        
+        -- Segundo teste: D = "01010101" (padrão alternado inverso)
+        D <= "01010101";
+        wait for 20 ns;
+        
+        for i in 0 to 7 loop
+            S <= std_logic_vector(to_unsigned(i, 3));
+            wait for 50 ns;
+        end loop;
+        
+        wait for 50 ns;
+        
+        -- Terceiro teste: D = "11110000" 
+        D <= "11110000";
+        wait for 20 ns;
+        
+        for i in 0 to 7 loop
+            S <= std_logic_vector(to_unsigned(i, 3));
+            wait for 50 ns;
+        end loop;
+        
+        wait for 50 ns;
+        
+        -- Quarto teste: D = "00001111"
+        D <= "00001111";
+        wait for 20 ns;
+        
+        for i in 0 to 7 loop
+            S <= std_logic_vector(to_unsigned(i, 3));
+            wait for 50 ns;
+        end loop;
+        
+        wait for 50 ns;
+        
+        -- Teste final: todos os bits em 1
+        D <= "11111111";
+        wait for 20 ns;
+        
+        for i in 0 to 7 loop
+            S <= std_logic_vector(to_unsigned(i, 3));
+            wait for 50 ns;
+        end loop;
+        
+        wait;
+    end process;
+END;

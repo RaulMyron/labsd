@@ -1,14 +1,14 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity function_logic is
+entity funcaoC is
     port (
         A, B, C, D, E, F, G : in std_logic;
         Z : out std_logic
     );
-end entity function_logic;
+end entity funcaoC;
 
-architecture ARCH of function_logic is
+architecture ARCH of funcaoC is
     component DECO is
         port (
             A : in std_logic_vector(3 downto 0);
@@ -39,15 +39,11 @@ architecture ARCH of function_logic is
     signal func_000, func_001, func_010, func_011 : std_logic;
     signal func_100, func_101, func_110, func_111 : std_logic;
     
-    signal or_000_out, or_001_out, or_010_out : std_logic;
-    signal or_100_out, or_110_a_out, or_110_b_out : std_logic;
+    signal or_110_a_out : std_logic;
 
 begin
-    Signal_Process: process(A, B, C, D, E, F, G)
-    begin
-        decoder_in <= A & B & C & D;
-        mux_select <= E & F & G;
-    end process Signal_Process;
+    decoder_in <= A & B & C & D;
+    mux_select <= E & F & G;
     
     decoder_inst: DECO
         port map (
@@ -57,15 +53,15 @@ begin
     
     or_000: OR_GATE
         port map (
-            A => decoder_out(0), 
-            B => decoder_out(8), 
+            A => decoder_out(0),
+            B => decoder_out(8),
             Y => func_000
         );
     
     or_001: OR_GATE
         port map (
-            A => decoder_out(15), 
-            B => decoder_out(0), 
+            A => decoder_out(15),
+            B => decoder_out(0),
             Y => func_001
         );
     
@@ -89,15 +85,15 @@ begin
     
     or_110_a: OR_GATE
         port map (
-            A => decoder_out(10), 
-            B => decoder_out(11), 
+            A => decoder_out(10),
+            B => decoder_out(11),
             Y => or_110_a_out
         );
     
     or_110_b: OR_GATE
         port map (
             A => or_110_a_out,
-            B => decoder_out(7), 
+            B => decoder_out(7),
             Y => func_110
         );
     
@@ -171,8 +167,7 @@ begin
          D(4) when S = "100" else
          D(5) when S = "101" else
          D(6) when S = "110" else
-         D(7) when S = "111" else
-         '0';
+         D(7);
 end architecture behavioral;
 
 -----------------------------------------------------------------
