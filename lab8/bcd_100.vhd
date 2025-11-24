@@ -15,6 +15,8 @@ entity contador_bcd_100 is
 end contador_bcd_100;
 
 architecture contador_bcd_100_arch of contador_bcd_100 is
+
+    -- Declaração do componente Módulo 10
     component contador_bcd_10
         port(
             clock  : in  STD_LOGIC;
@@ -28,31 +30,35 @@ architecture contador_bcd_100_arch of contador_bcd_100 is
         );
     end component;
     
+    -- Sinal interno para conectar o Carry Out da unidade ao Carry In da dezena
     signal rco_unidade : STD_LOGIC;
+
 begin
-    -- Contador das unidades // RCI zera p/ habilitar contagem
+
+    -- Instância do Contador das UNIDADES
     contador_unidade: contador_bcd_10
         port map(
             clock  => clock,
             reset  => reset,
-            enable => enable,
-            rci    => '0',
+            enable => enable,      -- Recebe o Enable Global
+            rci    => '0',         -- Sempre pronto para contar (LSB)
             load   => load,
             D      => D_unidade,
             Q      => Q_unidade,
-            rco    => rco_unidade
+            rco    => rco_unidade  -- Envia sinal de estouro para a dezena
         );
-    
-    -- Contador das dezenas (RCI conectado ao RCO das unidades)
+
+    -- Instância do Contador das DEZENAS
     contador_dezena: contador_bcd_10
         port map(
             clock  => clock,
             reset  => reset,
-            enable => rco_unidade,  -- Soh conta quando unidade completa ciclo
-            rci    => '0',
+            enable => enable,      -- Recebe o Enable Global (Pausa geral)
+            rci    => rco_unidade, -- Só conta se a unidade estiver estourando (RCO=0)
             load   => load,
             D      => D_dezena,
             Q      => Q_dezena,
-            rco    => open
+            rco    => open         -- Não utilizado (ou conectaria à centena)
         );
+
 end contador_bcd_100_arch;
